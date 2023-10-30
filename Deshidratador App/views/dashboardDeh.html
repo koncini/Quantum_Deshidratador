@@ -1,0 +1,124 @@
+<!doctype html>
+
+<html lang="esp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/navStyle.css">
+    <script src="js/navScript.js"></script>
+    <script src="js/login.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <script src="https://kit.fontawesome.com/b3ab30c678.js" crossorigin="anonymous"></script>
+    <script>
+        if (getUserName() != "Admin") {
+            location.href='/awp/ServidorQuantum/views/login.html';
+        }
+    </script>
+
+    <title>Quantum</title>
+
+	<script type="text/javascript">
+
+		var abrirLog = function() {
+		  	var win = window.open('https://docs.google.com/spreadsheets/d/10VKNkT25-FNhzgkY4EC4vE7pY0r6qtsANeq6rnuiMzo/edit?usp=sharing', '_blank');
+			if (win) {
+			    //Browser has allowed it to be opened
+			    win.focus();
+			} else {
+			    //Browser has blocked it
+			    alert('Please allow popups for this website');
+			}
+		}
+
+        $(document).ready(function(){
+        	var url = "https://script.google.com/macros/s/AKfycbzgAWOGCQWg1dmNemG9NovTVxd_DWJkcOs8jabT7UjSKQCX2iLyU4BU-CODy1nYpbt3LA/exec?par=amb"
+            $.ajaxSetup({ cache: false }); 
+            setInterval(function() {
+                $.get(url, function(result){
+                	var data = JSON.parse(result);
+                	generateGraph(data[0], data[1]);
+                });
+            },10000);
+        });
+
+	</script>
+  </head>
+
+  <body onload="generateGraph()">
+
+	<!-- AWP_Import_Fragment Name='navBar' -->
+
+    <!-- AWP_Import_Fragment Name='sideBar' -->
+	
+	<div class="container">
+		<h2>Humedad y Temperatura Deshidratación</h2>
+		<div class="content" id="chartHumTempDeh-div">
+			<div class="content-div">
+				<canvas id="chartHumTempDeh" height="300"> </canvas>
+			</div>
+		</div>
+		<div class="containerHr">
+			<div>
+				<button type="button" class="btn btn-success" onmousedown="abrirLog()">Abrir Log</button>
+			</div>
+		</div>
+	</div>
+
+	<script>
+	 		
+	  	function generateGraph(DATA, DATB){
+		  var ctx = document.getElementById('chartHumTempDeh').getContext('2d');
+		  var myLineChart = new Chart(ctx, {
+		    type: 'line',
+		    data: {
+		      datasets: [
+		        {
+		          label: 'Humedad',
+		          borderColor: '#0000FF',
+		          data: DATB,
+		          type: 'line',
+		          pointRadius: 0,
+		          fill: false,
+		          lineTension: 0,
+		          borderWidth: 2
+		        },
+		        {
+		          label: 'Temperatura',
+		          borderColor: '#FF0000',
+		          data: DATA,
+		          type: 'line',
+		          pointRadius: 0,
+		          fill: false,
+		          lineTension: 0,
+		          borderWidth: 2
+		        }
+		       ]
+		    },
+		    options: {
+		        scales: {
+		          xAxes: [{
+		            type: 'time',
+		            scaleLabel: {
+		              display: true,
+		              labelString: 'Hora'
+		            }
+		          }],
+		          yAxes: [{
+		            type: 'linear',
+		            scaleLabel: {
+		              display: true,
+		              labelString: '[%H - °C]'
+		            }
+		        }]
+		      }
+		    }
+		  });
+		}
+	</script>
+  </body>
+</html>

@@ -1,0 +1,207 @@
+<!doctype html>
+
+<html lang="esp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/navStyle.css">
+    <script src="js/navScript.js"></script>
+    <script src="js/login.js"></script>
+    <script src="https://kit.fontawesome.com/b3ab30c678.js" crossorigin="anonymous"></script>
+    <script>
+        if (getUserName() != "Admin") {
+            location.href='/awp/ServidorQuantum/views/login.html';
+        }
+    </script>
+	<script type="text/javascript" src="js/smoothie2.js"></script>
+
+    <title>Growtools</title>
+
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            $('#mine_block').click(function(e){
+                var url = "https://script.google.com/macros/s/AKfycbyDcKU2bTxEtGuBwL-A-yfVsYIolUla2FnUkkY2XFREMba4XwWSuLIh5LZHIWjQiHkowA/exec?room=deshidratadores"
+                $.ajax({
+                    "url" : url,
+                    "type" : "GET",
+                    'success' : function(result) {
+                        var data = JSON.parse(result);
+                        addTransaction(data);
+                    }
+                });
+            });
+        });
+
+        $(document).ready(function(){
+            $('#get_blockchain').click(function(e){
+                $.ajax({
+                    "url" : "https://b2db-35-199-103-50.ngrok.io/get_chain",
+                    "type" : "GET",
+                    'success' : function(result) {
+                        var last_block = (result.chain[result.length-1]);
+                        var block_data = last_block.transactions[0].payload;
+                        var number_of_data_sets = block_data.length;
+                        var data_set2 = block_data[0];
+                        var data_set1 = block_data[1];
+                        var html = "";
+                        for (var i = 0; i < data_set1.length; i++){
+                            html += '<tr>'+
+                                        '<td><center>' + data_set1[i].t + '</center></td>' +
+                                        '<td><center>' + data_set1[i].y + '</center></td>' +
+                                        '<td><center>' + data_set2[i].y + '</center></td>' +
+                                        '<td><center>' + 0 + '</center></td>' +
+                                        '<td><center>' + 0 + '</center></td>' +
+                                    '</tr>';
+                        }
+                        $("#table_s tbody").append(html); 
+                    }
+                });
+            });
+        });
+
+        $(document).ready(function(){
+            $('#is_valid').click(function(e){
+                $.ajax({
+                    "url" : "https://b2db-35-199-103-50.ngrok.io/is_valid",
+                    "type" : "GET",
+                    'success' : function(result) {
+                        $("#error").html(result.message);
+                        $('#myModal').modal("show");
+                    }
+                });
+            });
+        });
+
+        function addTransaction(data){
+            $.ajax({
+                "url" : "https://b2db-35-199-103-50.ngrok.io/add_transaction",
+                "type" : "POST",
+                "data": JSON.stringify({"sender": "Local",
+                    "receiver": "remote",
+                    "payload" : data
+                }),
+                "contentType": "application/json; charset=utf-8",
+                'success' : function(result) {
+                   mineBlock();
+                }
+            });
+        }
+        
+        function mineBlock(){
+            $.ajax({
+                "url" : "https://b2db-35-199-103-50.ngrok.io/mine_block",
+                "type" : "GET",
+                'success' : function(result) {
+                    $("#error").html(result.message);
+                    $('#myModal').modal("show");
+                }
+            });
+        }
+
+        function cambiarTabla(){
+            var x = document.getElementById("variables").value;
+            console.log(x);
+        }
+    </script>
+
+  </head>
+
+  <body>
+  
+    <!-- AWP_Import_Fragment Name='navBar' -->
+
+    <!-- AWP_Import_Fragment Name='sideBar' -->
+
+    <div class = "container">
+        <br>
+        <div class="containerHr">
+
+            <h1>Integridad de Datos</h1>
+            <div class="containerHr">
+                <button id="mine_block" type="button" class="btn btn-success">Minar Bloque</button>
+                <br>
+                <button id="is_valid" type="button" class="btn btn-success">Validar Blockchain</button>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading"><h1>Consultar Datos</h1></div>
+            <div class="panel-body">
+                <form name="table_s" id="table_s">
+                <div class="table-responsive">
+                    <table class="table table-striped" id="table_s">
+                        <thead class="thead-dark">
+
+                          <tr>
+                            <th><center>Timestamp</center></th>
+                            <th><center>Temperatura Deshidratación</center></th>
+                            <th><center>Humedad Deshidratación</center></th>
+                            <th><center>Temperatura Cuarentena</center></th>
+                            <th><center>Humedad Cuarentena</center></th>
+                          </tr>
+
+                        </thead>
+                        <tbody>
+                          <tr>
+
+                          <tr>
+                            <td id="td_s0"></td>
+                            <td id="td_s1"></td>
+                            <td id="td_s2"></td>
+                            <td id="td_s3"></td>
+                            <td id="td_s4"></td>
+
+                          </tr>
+
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="containerHr">
+                    <input type="button" value="Obtener Datos por Blockchain" id="get_blockchain" class="btn btn-success"/>
+                    <div class="form-group">
+                      <label class="control-label col-sm-4" for="variables">Variables</label>
+                      <div class="col-sm-9 col-md-7">
+                        <select id="variables" class="form-control" onchange="cambiarTabla()">
+                          <option>Variables Habitaciones</option>
+                          <option>Temperatura Deshidratadores</option>
+                          <option>Humedad Material</option>
+                        </select>
+                        <input type="hidden" name="cms-form"/> 
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+      <!-- Modal -->
+          <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+            
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Aviso</h4>
+                </div>
+                <div class="modal-body">
+                  <p id="error"></p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+    </div>
+  </body>
+</html>

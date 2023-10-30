@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="esp">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="js/login.js"></script>
+        <script src="https://kit.fontawesome.com/b3ab30c678.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/login.css">
+
+        <title>Login Quantum</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <center><img id="logo-img" class="card-img-top py-3" src="img/logo.png" style="max-width: 720px"></center>
+            <div class="card border-secondary text-center mx-auto" style="max-width: 380px;">
+                <div class="card-body">
+                    <h5 class="card-title">Autenticación Quantum</h5>
+                    <h6 id="idLogFailed" class="card-subtitle"></h6>
+                    <form enctype="application/x-www-form-urlencoded" action="/FormLogin" method="POST" autocomplete="off">
+                        <input type="hidden" id="idRedirection" name="Redirection" value="">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                </div>
+                                <input type="text" name="Login" class="form-control" placeholder="Usuario" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                                </div>
+                                <input type="password" name="Password" class="form-control" placeholder="Contraseña" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-light">Login</button>
+                    </form>
+                    <a href="/Portal/Portal.mwsl" class="btn btn-secondary mt-4">Portal PLC</a>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(function() {
+                if (getUrlParameter('InvalidLogin')=='true'){
+                    $('#idLogFailed').html('<strong>Usuario incorrecto</strong>').addClass('text-danger');
+                }
+
+                //Redirect to different pages based on username if needed
+                switch( getUserName() ) {
+                    case "Admin":
+                        location.href='/awp/ServidorQuantum/views/index.html';
+                    break;
+                    case "Developer":
+                        location.href='/Portal/Portal.mwsl';
+                    break;
+                    case "User":
+                        location.href='/awp/ServidorQuantum/views/index.html';
+                    break;
+                }
+
+            });
+        </script>
+    </body>
+</html>
+  
