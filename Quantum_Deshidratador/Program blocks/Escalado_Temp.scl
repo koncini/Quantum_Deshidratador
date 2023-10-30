@@ -1,0 +1,24 @@
+﻿FUNCTION_BLOCK "Escalado_Temp"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR 
+      TempAux : Real;
+   END_VAR
+
+   VAR CONSTANT 
+      M_Time : Time := T#20ms;
+   END_VAR
+
+
+BEGIN
+	#TempAux := INT_TO_REAL("Raw_Temperatura");
+	//#TempAux := INT_TO_REAL("DATOS_MODSEC".TempSim);
+	
+	"Prom_FilterV2_DB"(Scale_Value:=#TempAux,
+	                   Inf_Limit:="DATOS_MODSEC".TempInf,
+	                   Sup_Limit:="DATOS_MODSEC".TempSup,
+	                   Filter_Set_Time:=#M_Time,
+	                   Max_Analog_Value:=27648,
+	                   Prom_Filter=>"DATOS_MODSEC".TempFilt);
+END_FUNCTION_BLOCK
+

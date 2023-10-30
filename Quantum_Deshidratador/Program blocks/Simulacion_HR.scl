@@ -1,0 +1,43 @@
+﻿FUNCTION_BLOCK "Simulacion_HR"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_OUTPUT 
+      y3 : Int;
+   END_VAR
+
+   VAR 
+      Timer_SimHR : Struct
+         IN : Bool;
+         PT : Time;
+         Q : Bool;
+         ET : Time;
+      END_STRUCT;
+      t : Int;
+      t2 : Real;
+      y3_Aux : Int;
+   END_VAR
+
+
+BEGIN
+	IF #Timer_SimHR.IN = FALSE
+	THEN
+	    #Timer_SimHR.IN := TRUE;
+	END_IF;
+	IF #Timer_SimHR.Q = TRUE AND #Timer_SimHR.IN = TRUE
+	THEN
+	    #Timer_SimHR.IN := FALSE;
+	    #t := (#t + 1) MOD 3160;
+	    #t2 := INT_TO_REAL(#t);
+	    #t2 := #t2 / 100;
+	    //#y1_Aux := REAL_TO_INT((1000 * (SIN(#t2))) + 10000);  // Temperatura Superior
+	    //#y2_Aux := REAL_TO_INT((1000 * (SIN(#t2 + 10))) + 40 + 10000);    // Temperatura Inferior
+	    #y3_Aux := REAL_TO_INT((1000 * (SIN(#t2 + 20))) + 40 + 10 + 20000);   // Humedad Relativa
+	    #y3 := #y3_Aux;
+	END_IF;
+	
+	"Timer_SimHR_DB".TON(IN:=#Timer_SimHR.IN,
+	                     PT:="DATOS_MODSEC"."Paso Grafica",
+	                     Q=>#Timer_SimHR.Q,
+	                     ET=>#Timer_SimHR.ET);
+END_FUNCTION_BLOCK
+

@@ -1,0 +1,29 @@
+﻿FUNCTION "Control_Maestro" : Void
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_INPUT 
+      Temperatura : Int;
+      SetValue : Int;
+   END_VAR
+
+   VAR_OUTPUT 
+      HabilitarControl : Bool;
+      Resitencias : Bool;
+   END_VAR
+
+   VAR CONSTANT 
+      Hysteresis : Int := 1;
+   END_VAR
+
+
+BEGIN
+	IF #Temperatura < #SetValue AND NOT #HabilitarControl OR #Temperatura > #SetValue + #Hysteresis AND #HabilitarControl THEN
+	    #HabilitarControl := FALSE;
+	    #Resitencias := TRUE;
+	ELSE
+	    #HabilitarControl := TRUE;
+	    #Resitencias := FALSE;
+	END_IF;
+	
+END_FUNCTION
+

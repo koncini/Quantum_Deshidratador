@@ -1,0 +1,39 @@
+﻿FUNCTION_BLOCK "Filtro_Promedio"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_INPUT 
+      N : Int;
+      "D.IN" : Real;
+   END_VAR
+
+   VAR_OUTPUT 
+      "D.OUT" : Real;
+   END_VAR
+
+   VAR 
+      D : Array[0..100] of Real;
+      I : Int;
+      J : Int;
+      "D.Sum" : Real;
+   END_VAR
+
+
+BEGIN
+	// Procesamiento de Valor Promedio 
+	// Tiempo de cilco 100ms <- From Cyclic interrupt [OB30]
+	// #N = 60  <- 60*100ms = 6 segundos  (10*0.1s = 1Seg)
+	
+	// --- Almacenamiento de los Datos -----
+	#I :=(#I + 1) MOD #N;   // <- 0 .. N = N+1 Datos
+	#D[#I] := #"D.IN";      // NOTA: La posición #D[N] nunca se utiliza
+	
+	// --- Calculo del valor Promedio --------------------------------------
+	#"D.Sum" := 0;
+	FOR #J := 0 TO (#N-1) BY 1 DO
+	    #"D.Sum" := #"D.Sum" + #D[#J];
+	END_FOR;
+	
+	#"D.OUT" := #"D.Sum" / #N;
+	
+END_FUNCTION_BLOCK
+

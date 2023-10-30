@@ -1,0 +1,68 @@
+﻿FUNCTION_BLOCK "Prom_FilterV2"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_INPUT 
+      Scale_Value { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Real;
+      Inf_Limit { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Real;
+      Sup_Limit { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Real;
+      Cal { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Real;
+      Filter_Set_Time : Time;
+      Max_Analog_Value : UInt;
+   END_VAR
+
+   VAR_OUTPUT 
+      Prom_Filter : Real;
+   END_VAR
+
+   VAR 
+      i { ExternalVisible := 'False'} : Int;
+   END_VAR
+   VAR RETAIN
+      i_Acum { ExternalVisible := 'False'} : Real;
+   END_VAR
+   VAR 
+      Pv_Value : Real;
+      Pv_Aux1 : Real;
+      En_Filter_Timer : Bool := False;
+      Filter_P_Time : Time;
+      Filter_TImer {InstructionName := 'TONR_TIME'; LibVersion := '1.0'} : TONR_TIME;
+   END_VAR
+
+
+BEGIN
+	#Filter_TImer(IN:=NOT(#En_Filter_Timer),
+	              R:=#En_Filter_Timer,
+	              PT:=#Filter_Set_Time,
+	              Q=>#En_Filter_Timer,
+	              ET=>#Filter_P_Time);
+	
+	// "Filter_Timer".TONR(IN:=NOT(#En_Filter_Timer),
+	//                     R:=#En_Filter_Timer,
+	//                     PT:=#Filter_Set_Time,
+	//                     Q=>#En_Filter_Timer,
+	//                     ET=>#Filter_P_Time);
+	
+	IF #En_Filter_Timer = True
+	THEN
+	    IF #Scale_Value > 27648
+	    THEN
+	        #Prom_Filter := -1;
+	    ELSE
+	        FOR #i := 1 TO 200 DO
+	            #Pv_Aux1 := (NORM_X_REAL(MIN:=0, VALUE:= REAL_TO_INT(#Scale_Value), MAX:= #Max_Analog_Value));
+	            #Pv_Value := ((SCALE_X_REAL(MIN:=#Inf_Limit, VALUE:= #Pv_Aux1, MAX:= #Sup_Limit)) - #Cal);
+	            #i_Acum:= #i_Acum + #Pv_Value;
+	        END_FOR;
+	    END_IF;
+	    #i:=#i+1;
+	    #En_Filter_Timer := False;
+	END_IF;
+	
+	IF #i >= 200
+	THEN
+	    #Prom_Filter := #i_Acum / 200;
+	    #i_Acum := 0;
+	    #i:= 0;
+	END_IF;
+END_FUNCTION_BLOCK
+

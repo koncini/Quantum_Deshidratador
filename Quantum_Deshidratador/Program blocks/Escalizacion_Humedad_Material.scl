@@ -1,0 +1,28 @@
+﻿FUNCTION "Escalizacion_Humedad_Material" : Void
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_INPUT 
+      raw_humidity : UInt;
+   END_VAR
+
+   VAR_OUTPUT 
+      scaled_humidity : UInt;
+   END_VAR
+
+   VAR_TEMP 
+      slope : Real;
+   END_VAR
+
+   VAR CONSTANT 
+      max_output : Real := 100.0;
+      min_output : Real := 0.0;
+      max_input : Real := 0.0;
+      min_input : Real := 1023.0;
+   END_VAR
+
+
+BEGIN
+	#slope := (#max_output - #min_output) / (#max_input - #min_input);
+	#scaled_humidity := #slope * (UINT_TO_REAL(#raw_humidity) - #min_input) + #min_output;
+END_FUNCTION
+
