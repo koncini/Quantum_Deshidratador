@@ -1,5 +1,5 @@
 var abrirLog = function() {
-    var win = window.open('https://docs.google.com/spreadsheets/d/1xE6ZEcFv-vTCJRJJHkc13DAFTWkyEDVgB7pEETY6Nbo/edit?usp=sharing', '_blank');
+    var win = window.open('https://docs.google.com/spreadsheets/d/1RlQNqFDG3-TT8oAfe3eHHrOu5UKLizjV2bPbu-GBQ8Q/edit?usp=sharing', '_blank');
   if (win) {
       //Browser has allowed it to be opened
       win.focus();
@@ -10,7 +10,7 @@ var abrirLog = function() {
 }
 
 $(document).ready(function(){
-  var url = "https://script.google.com/macros/s/AKfycbz1gWmpwOY_YI-VZnHIKdM4kc6NmhpeZWbmbfKTY_vOzYuGbC_xkknEPa_J9E-ytFddbw/exec?deh=hum1"
+  var url = "https://script.google.com/macros/s/AKfycbyJ7QCBquwKORoWEm7-fV0HBG6R6TEjhFgJUTwnW5G5sFuIUiSRoDQKCgnbnUl2gP8OAw/exec?deh=hum1"
     $.ajaxSetup({ cache: false }); 
     setInterval(function() {
         $.get(url, function(result){

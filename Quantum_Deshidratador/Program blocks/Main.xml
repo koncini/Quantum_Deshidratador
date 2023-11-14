@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V16" />
   <DocumentInfo>
-    <Created>2023-10-30T22:43:47.694868Z</Created>
+    <Created>2023-11-14T19:43:08.3111632Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -3240,10 +3240,10 @@
         <Component Name="Modo_Preset_D1" />
       </Symbol>
     </Access>
-    <Access Scope="TypedConstant" UId="23">
-      <Constant>
-        <ConstantValue>T#6H</ConstantValue>
-      </Constant>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="Tiempo_Histeresis_D1" />
+      </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="24">
       <Symbol>
@@ -3308,8 +3308,8 @@
     <Part Name="RCoil" UId="40" />
     <Part Name="RCoil" UId="41" />
     <Part Name="RCoil" UId="42" />
-    <Part Name="Coil" UId="43" />
-    <Part Name="Coil" UId="44" />
+    <Part Name="SCoil" UId="43" />
+    <Part Name="SCoil" UId="44" />
   </Parts>
   <Wires>
     <Wire UId="46">
@@ -3860,7 +3860,7 @@
     </Access>
     <Access Scope="GlobalVariable" UId="35">
       <Symbol>
-        <Component Name="Set_Point_Deshidratador1_Intermedia" />
+        <Component Name="Set_Point_Deshidratador1_Final" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="36">

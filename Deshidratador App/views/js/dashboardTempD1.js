@@ -10,7 +10,7 @@ var abrirLog = function() {
 }
 
 $(document).ready(function(){
-  var url = "https://script.google.com/macros/s/AKfycbzgAWOGCQWg1dmNemG9NovTVxd_DWJkcOs8jabT7UjSKQCX2iLyU4BU-CODy1nYpbt3LA/exec?par=temp";
+  var url = "https://script.google.com/macros/s/AKfycby1L62q-Kz4Wcua6_ODrjGQoJUupfizxEeQ5gUQCiGXT-yS-LTLU_UU7gGQ_dUvgoI3xg/exec?par=temp";
     $.ajaxSetup({ cache: false }); 
     setInterval(function() {
         $.get(url, function(result){

@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V16" />
   <DocumentInfo>
-    <Created>2023-10-30T22:43:56.6300259Z</Created>
+    <Created>2023-11-14T19:43:19.8365651Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -780,7 +780,7 @@
           <ExternalAccessible>true</ExternalAccessible>
           <ExternalVisible>true</ExternalVisible>
           <ExternalWritable>true</ExternalWritable>
-          <LogicalAddress>%M30.0</LogicalAddress>
+          <LogicalAddress>%M40.0</LogicalAddress>
           <Name>Iniciar_Pulse</Name>
         </AttributeList>
         <ObjectList>
@@ -802,7 +802,7 @@
           <ExternalAccessible>true</ExternalAccessible>
           <ExternalVisible>true</ExternalVisible>
           <ExternalWritable>true</ExternalWritable>
-          <LogicalAddress>%M30.1</LogicalAddress>
+          <LogicalAddress>%M40.1</LogicalAddress>
           <Name>Detener_Pulse</Name>
         </AttributeList>
         <ObjectList>
@@ -824,7 +824,7 @@
           <ExternalAccessible>true</ExternalAccessible>
           <ExternalVisible>true</ExternalVisible>
           <ExternalWritable>true</ExternalWritable>
-          <LogicalAddress>%M30.2</LogicalAddress>
+          <LogicalAddress>%M40.2</LogicalAddress>
           <Name>Guardar_Datos</Name>
         </AttributeList>
         <ObjectList>
@@ -846,7 +846,7 @@
           <ExternalAccessible>true</ExternalAccessible>
           <ExternalVisible>true</ExternalVisible>
           <ExternalWritable>true</ExternalWritable>
-          <LogicalAddress>%M30.3</LogicalAddress>
+          <LogicalAddress>%M40.3</LogicalAddress>
           <Name>Data_Log_Write_Error</Name>
         </AttributeList>
         <ObjectList>
@@ -868,7 +868,7 @@
           <ExternalAccessible>true</ExternalAccessible>
           <ExternalVisible>true</ExternalVisible>
           <ExternalWritable>true</ExternalWritable>
-          <LogicalAddress>%M30.4</LogicalAddress>
+          <LogicalAddress>%M40.4</LogicalAddress>
           <Name>Data_Log_Write_Busy</Name>
         </AttributeList>
         <ObjectList>
@@ -890,7 +890,7 @@
           <ExternalAccessible>true</ExternalAccessible>
           <ExternalVisible>true</ExternalVisible>
           <ExternalWritable>true</ExternalWritable>
-          <LogicalAddress>%M30.5</LogicalAddress>
+          <LogicalAddress>%M40.5</LogicalAddress>
           <Name>Data_Log_Write_Done</Name>
         </AttributeList>
         <ObjectList>
@@ -912,7 +912,7 @@
           <ExternalAccessible>true</ExternalAccessible>
           <ExternalVisible>true</ExternalVisible>
           <ExternalWritable>true</ExternalWritable>
-          <LogicalAddress>%MW34</LogicalAddress>
+          <LogicalAddress>%MW96</LogicalAddress>
           <Name>Data_Log_Write_Status</Name>
         </AttributeList>
         <ObjectList>
@@ -934,7 +934,7 @@
           <ExternalAccessible>true</ExternalAccessible>
           <ExternalVisible>true</ExternalVisible>
           <ExternalWritable>true</ExternalWritable>
-          <LogicalAddress>%M30.6</LogicalAddress>
+          <LogicalAddress>%M40.6</LogicalAddress>
           <Name>Clock_0.016Hz</Name>
         </AttributeList>
         <ObjectList>
@@ -956,7 +956,7 @@
           <ExternalAccessible>true</ExternalAccessible>
           <ExternalVisible>true</ExternalVisible>
           <ExternalWritable>true</ExternalWritable>
-          <LogicalAddress>%MW36</LogicalAddress>
+          <LogicalAddress>%MW98</LogicalAddress>
           <Name>Ret_Val</Name>
         </AttributeList>
         <ObjectList>
@@ -1044,7 +1044,7 @@
           <ExternalAccessible>true</ExternalAccessible>
           <ExternalVisible>true</ExternalVisible>
           <ExternalWritable>true</ExternalWritable>
-          <LogicalAddress>%M31.1</LogicalAddress>
+          <LogicalAddress>%M41.1</LogicalAddress>
           <Name>Tag_1</Name>
         </AttributeList>
         <ObjectList>
@@ -1110,7 +1110,7 @@
           <ExternalAccessible>true</ExternalAccessible>
           <ExternalVisible>true</ExternalVisible>
           <ExternalWritable>true</ExternalWritable>
-          <LogicalAddress>%MD38</LogicalAddress>
+          <LogicalAddress>%MD100</LogicalAddress>
           <Name>Humedad_Material_D11</Name>
         </AttributeList>
         <ObjectList>
@@ -1132,7 +1132,7 @@
           <ExternalAccessible>true</ExternalAccessible>
           <ExternalVisible>true</ExternalVisible>
           <ExternalWritable>true</ExternalWritable>
-          <LogicalAddress>%MD42</LogicalAddress>
+          <LogicalAddress>%MD104</LogicalAddress>
           <Name>Humedad_Material_D13</Name>
         </AttributeList>
         <ObjectList>
@@ -1154,7 +1154,7 @@
           <ExternalAccessible>true</ExternalAccessible>
           <ExternalVisible>true</ExternalVisible>
           <ExternalWritable>true</ExternalWritable>
-          <LogicalAddress>%MD46</LogicalAddress>
+          <LogicalAddress>%MD108</LogicalAddress>
           <Name>Humedad_Material_D16</Name>
         </AttributeList>
         <ObjectList>
@@ -1176,7 +1176,7 @@
           <ExternalAccessible>true</ExternalAccessible>
           <ExternalVisible>true</ExternalVisible>
           <ExternalWritable>true</ExternalWritable>
-          <LogicalAddress>%MD54</LogicalAddress>
+          <LogicalAddress>%MD114</LogicalAddress>
           <Name>Temp_D13</Name>
         </AttributeList>
         <ObjectList>
@@ -1198,7 +1198,7 @@
           <ExternalAccessible>true</ExternalAccessible>
           <ExternalVisible>true</ExternalVisible>
           <ExternalWritable>true</ExternalWritable>
-          <LogicalAddress>%MD58</LogicalAddress>
+          <LogicalAddress>%MD118</LogicalAddress>
           <Name>Temp_Matte</Name>
         </AttributeList>
         <ObjectList>
@@ -1242,7 +1242,7 @@
           <ExternalAccessible>true</ExternalAccessible>
           <ExternalVisible>true</ExternalVisible>
           <ExternalWritable>true</ExternalWritable>
-          <LogicalAddress>%MD50</LogicalAddress>
+          <LogicalAddress>%MD112</LogicalAddress>
           <Name>Temp_D11</Name>
         </AttributeList>
         <ObjectList>
@@ -1286,7 +1286,7 @@
           <ExternalAccessible>true</ExternalAccessible>
           <ExternalVisible>true</ExternalVisible>
           <ExternalWritable>true</ExternalWritable>
-          <LogicalAddress>%M31.2</LogicalAddress>
+          <LogicalAddress>%M41.2</LogicalAddress>
           <Name>Clock_Matte_Manual</Name>
         </AttributeList>
         <ObjectList>
@@ -1528,7 +1528,7 @@
           <ExternalAccessible>true</ExternalAccessible>
           <ExternalVisible>true</ExternalVisible>
           <ExternalWritable>true</ExternalWritable>
-          <LogicalAddress>%MD98</LogicalAddress>
+          <LogicalAddress>%MD14</LogicalAddress>
           <Name>Tiempo_Histeresis_D1</Name>
         </AttributeList>
         <ObjectList>
@@ -1550,7 +1550,7 @@
           <ExternalAccessible>true</ExternalAccessible>
           <ExternalVisible>true</ExternalVisible>
           <ExternalWritable>true</ExternalWritable>
-          <LogicalAddress>%MD102</LogicalAddress>
+          <LogicalAddress>%MD18</LogicalAddress>
           <Name>Set_Point_Deshidratador1_Inicial</Name>
         </AttributeList>
         <ObjectList>
@@ -1572,7 +1572,7 @@
           <ExternalAccessible>true</ExternalAccessible>
           <ExternalVisible>true</ExternalVisible>
           <ExternalWritable>true</ExternalWritable>
-          <LogicalAddress>%MD106</LogicalAddress>
+          <LogicalAddress>%MD22</LogicalAddress>
           <Name>Set_Point_Deshidratador1_Intermedia</Name>
         </AttributeList>
         <ObjectList>
@@ -1594,7 +1594,7 @@
           <ExternalAccessible>true</ExternalAccessible>
           <ExternalVisible>true</ExternalVisible>
           <ExternalWritable>true</ExternalWritable>
-          <LogicalAddress>%MD110</LogicalAddress>
+          <LogicalAddress>%MD24</LogicalAddress>
           <Name>Set_Point_Deshidratador1_Final</Name>
         </AttributeList>
         <ObjectList>
@@ -1616,7 +1616,7 @@
           <ExternalAccessible>true</ExternalAccessible>
           <ExternalVisible>true</ExternalVisible>
           <ExternalWritable>true</ExternalWritable>
-          <LogicalAddress>%MD114</LogicalAddress>
+          <LogicalAddress>%MD28</LogicalAddress>
           <Name>Set_Point_Humedad_D1_Inicial</Name>
         </AttributeList>
         <ObjectList>
@@ -1638,7 +1638,7 @@
           <ExternalAccessible>true</ExternalAccessible>
           <ExternalVisible>true</ExternalVisible>
           <ExternalWritable>true</ExternalWritable>
-          <LogicalAddress>%MD118</LogicalAddress>
+          <LogicalAddress>%MD32</LogicalAddress>
           <Name>Set_Point_Humedad_D1_Intermedia</Name>
         </AttributeList>
         <ObjectList>
@@ -1660,7 +1660,7 @@
           <ExternalAccessible>true</ExternalAccessible>
           <ExternalVisible>true</ExternalVisible>
           <ExternalWritable>true</ExternalWritable>
-          <LogicalAddress>%MD122</LogicalAddress>
+          <LogicalAddress>%MD36</LogicalAddress>
           <Name>Set_Point_Humedad_D1_Final</Name>
         </AttributeList>
         <ObjectList>
@@ -1682,7 +1682,7 @@
           <ExternalAccessible>true</ExternalAccessible>
           <ExternalVisible>true</ExternalVisible>
           <ExternalWritable>true</ExternalWritable>
-          <LogicalAddress>%M31.3</LogicalAddress>
+          <LogicalAddress>%M41.3</LogicalAddress>
           <Name>Detener_Desde_Modo_Preset</Name>
         </AttributeList>
         <ObjectList>
