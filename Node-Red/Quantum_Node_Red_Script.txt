@@ -1,0 +1,618 @@
+[
+    {
+        "id": "2abbf4e2.73ffcc",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "bc950a0e.c10ef8",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "44f7e78e.e9df88",
+        "type": "s7 endpoint",
+        "z": "",
+        "transport": "iso-on-tcp",
+        "address": "10.0.0.55",
+        "port": "102",
+        "rack": "0",
+        "slot": "1",
+        "localtsaphi": "01",
+        "localtsaplo": "00",
+        "remotetsaphi": "01",
+        "remotetsaplo": "00",
+        "connmode": "rack-slot",
+        "adapterauto": true,
+        "adapterport": "",
+        "busaddr": "2",
+        "adapteraddr": "0",
+        "cycletime": "60000",
+        "timeout": "1500",
+        "verbose": "default",
+        "name": "PLC",
+        "vartable": [
+            {
+                "addr": "DB8,REAL0",
+                "name": "humD1"
+            },
+            {
+                "addr": "DB8,REAL4",
+                "name": "humD2"
+            },
+            {
+                "addr": "DB8,REAL8",
+                "name": "humD3"
+            },
+            {
+                "addr": "DB8,REAL12",
+                "name": "tempSensor1"
+            },
+            {
+                "addr": "DB8,REAL16",
+                "name": "tempSensor2"
+            },
+            {
+                "addr": "DB8,REAL20",
+                "name": "humMatte"
+            },
+            {
+                "addr": "DB8,REAL24",
+                "name": "tempMatte"
+            },
+            {
+                "addr": "DB8,X28.0",
+                "name": "dehRunning"
+            }
+        ]
+    },
+    {
+        "id": "2e4072a7.0a049e",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "1cb197c9.6747c8",
+        "type": "s7 endpoint",
+        "z": "",
+        "transport": "iso-on-tcp",
+        "address": "10.0.0.55",
+        "port": "102",
+        "rack": "0",
+        "slot": "1",
+        "localtsaphi": "01",
+        "localtsaplo": "00",
+        "remotetsaphi": "01",
+        "remotetsaplo": "00",
+        "connmode": "rack-slot",
+        "adapterauto": true,
+        "adapterport": "",
+        "busaddr": "2",
+        "adapteraddr": "0",
+        "cycletime": "500",
+        "timeout": "1500",
+        "verbose": "default",
+        "name": "PLC",
+        "vartable": [
+            {
+                "addr": "DB44,X0.0",
+                "name": "alarmaFinOperacionDeh"
+            },
+            {
+                "addr": "DB44,X0.1",
+                "name": "alarmaFalloDeh"
+            }
+        ]
+    },
+    {
+        "id": "623bb2bd.05ca2c",
+        "type": "s7 endpoint",
+        "z": "",
+        "transport": "iso-on-tcp",
+        "address": "10.0.0.55",
+        "port": "102",
+        "rack": "0",
+        "slot": "1",
+        "localtsaphi": "01",
+        "localtsaplo": "00",
+        "remotetsaphi": "01",
+        "remotetsaplo": "00",
+        "connmode": "rack-slot",
+        "adapterauto": true,
+        "adapterport": "",
+        "busaddr": "2",
+        "adapteraddr": "0",
+        "cycletime": "500",
+        "timeout": "1500",
+        "verbose": "default",
+        "name": "PLC",
+        "vartable": [
+            {
+                "addr": "DB33,X0.0",
+                "name": "iniciarLog"
+            },
+            {
+                "addr": "DB33,X0.1",
+                "name": "almacenarLogs"
+            },
+            {
+                "addr": "DB33,X0.2",
+                "name": "terminarLog"
+            }
+        ]
+    },
+    {
+        "id": "5c3be6d7.536388",
+        "type": "s7 in",
+        "z": "2abbf4e2.73ffcc",
+        "endpoint": "44f7e78e.e9df88",
+        "mode": "all",
+        "variable": "",
+        "diff": false,
+        "name": "Datos PLC",
+        "x": 100,
+        "y": 120,
+        "wires": [
+            [
+                "a5f4c03e.3ef58",
+                "76dcfe10.09502"
+            ]
+        ]
+    },
+    {
+        "id": "a5f4c03e.3ef58",
+        "type": "debug",
+        "z": "2abbf4e2.73ffcc",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 370,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "8d66fa3d.8b0758",
+        "type": "http request",
+        "z": "2abbf4e2.73ffcc",
+        "name": "Escribir Log Humedad Material",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": true,
+        "url": "https://script.google.com/macros/s/AKfycbyZJ4emKb1oiBg80xc3TQa5xNi-Qnwx3c1LDtdqmq4u-_NE4uoKnOwip5zMnG_Al_vyLQ/exec",
+        "tls": "",
+        "proxy": "",
+        "authType": "",
+        "x": 590,
+        "y": 120,
+        "wires": [
+            [
+                "39d5b0bc.e917e"
+            ]
+        ]
+    },
+    {
+        "id": "39d5b0bc.e917e",
+        "type": "debug",
+        "z": "2abbf4e2.73ffcc",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 850,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "ba769ab7.3fc538",
+        "type": "s7 in",
+        "z": "bc950a0e.c10ef8",
+        "endpoint": "1cb197c9.6747c8",
+        "mode": "all",
+        "variable": "",
+        "diff": true,
+        "name": "Alarmas",
+        "x": 200,
+        "y": 140,
+        "wires": [
+            [
+                "af1abf18.429e4",
+                "2eaa153.34955ea",
+                "8589f438.58e8e8"
+            ]
+        ]
+    },
+    {
+        "id": "af1abf18.429e4",
+        "type": "switch",
+        "z": "bc950a0e.c10ef8",
+        "name": "alarmaFinOpDeh",
+        "property": "payload.alarmaFinOperacionDeh",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 430,
+        "y": 140,
+        "wires": [
+            [
+                "14408553.691b4b"
+            ]
+        ]
+    },
+    {
+        "id": "2eaa153.34955ea",
+        "type": "switch",
+        "z": "bc950a0e.c10ef8",
+        "name": "alarmaFalloDeh",
+        "property": "payload.alarmaFalloDeh",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 420,
+        "y": 220,
+        "wires": [
+            [
+                "c369d4b9.834298"
+            ]
+        ]
+    },
+    {
+        "id": "14408553.691b4b",
+        "type": "function",
+        "z": "bc950a0e.c10ef8",
+        "name": "Alarma fin OP Deh",
+        "func": "msg.headers = {\n    \"content-type\": \"application/x-www-form-urlencoded\"\n};\nmsg.payload = { \n    user: 'uozmmoj4623dkbcp5bu2vi7sm18un8',\n    token: 'a9hztf6s8jm74ykmwaxibgeoe3ob38',\n    message: 'La operación del deshidratador ha finalizado',\n    title: 'Quantum',\n    priority: '1', \n    sound: 'pushover',\n};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 670,
+        "y": 140,
+        "wires": [
+            [
+                "90ec2f67.14822"
+            ]
+        ]
+    },
+    {
+        "id": "90ec2f67.14822",
+        "type": "http request",
+        "z": "bc950a0e.c10ef8",
+        "name": "Post to Pushover",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": false,
+        "url": "https://api.pushover.net/1/messages.json",
+        "tls": "",
+        "proxy": "",
+        "authType": "",
+        "x": 910,
+        "y": 140,
+        "wires": [
+            [
+                "49ee2df6.1746f4"
+            ]
+        ]
+    },
+    {
+        "id": "c369d4b9.834298",
+        "type": "function",
+        "z": "bc950a0e.c10ef8",
+        "name": "Alarma fallo Deh",
+        "func": "msg.headers = {\n    \"content-type\": \"application/x-www-form-urlencoded\"\n};\nmsg.payload = { \n    user: 'uozmmoj4623dkbcp5bu2vi7sm18un8',\n    token: 'a9hztf6s8jm74ykmwaxibgeoe3ob38',\n    message: 'La operación del deshidratador ha finalizado inesperadamente',\n    title: 'Quantum',\n    priority: '-1', \n    sound: 'pushover',\n};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 670,
+        "y": 220,
+        "wires": [
+            [
+                "6a4d4c42.2f5954"
+            ]
+        ]
+    },
+    {
+        "id": "6a4d4c42.2f5954",
+        "type": "http request",
+        "z": "bc950a0e.c10ef8",
+        "name": "Post to Pushover",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": false,
+        "url": "https://api.pushover.net/1/messages.json",
+        "tls": "",
+        "proxy": "",
+        "authType": "",
+        "x": 910,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "46e69d1a.14e5e4",
+        "type": "http request",
+        "z": "2abbf4e2.73ffcc",
+        "name": "Escribir Log Ambiente",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": true,
+        "url": "https://script.google.com/macros/s/AKfycbzDveflH24vgylaVOIUW9K4j6hHx4UnfJbTdqUffgYOxP-OCLRVepScqk8hStCSHhBWdQ/exec",
+        "tls": "",
+        "proxy": "",
+        "authType": "",
+        "x": 560,
+        "y": 200,
+        "wires": [
+            [
+                "4ba51a07.a6b814"
+            ]
+        ]
+    },
+    {
+        "id": "4ba51a07.a6b814",
+        "type": "debug",
+        "z": "2abbf4e2.73ffcc",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 850,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "8589f438.58e8e8",
+        "type": "debug",
+        "z": "bc950a0e.c10ef8",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 410,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "49ee2df6.1746f4",
+        "type": "debug",
+        "z": "bc950a0e.c10ef8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1110,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "4c4df2bb.b2c6dc",
+        "type": "s7 in",
+        "z": "2abbf4e2.73ffcc",
+        "endpoint": "623bb2bd.05ca2c",
+        "mode": "all",
+        "variable": "",
+        "diff": true,
+        "name": "Control Log",
+        "x": 120,
+        "y": 460,
+        "wires": [
+            [
+                "5e250836.595508",
+                "978e6d7a.8d4c9"
+            ]
+        ]
+    },
+    {
+        "id": "5e250836.595508",
+        "type": "switch",
+        "z": "2abbf4e2.73ffcc",
+        "name": "Terminar Logueo",
+        "property": "payload.terminarLog",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 350,
+        "y": 460,
+        "wires": [
+            [
+                "66a504ca.e6b75c",
+                "4e3f9249.45f86c"
+            ]
+        ]
+    },
+    {
+        "id": "66a504ca.e6b75c",
+        "type": "http request",
+        "z": "2abbf4e2.73ffcc",
+        "name": "Terminar Log Humedad Material",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": false,
+        "url": "https://script.google.com/macros/s/AKfycbyZJ4emKb1oiBg80xc3TQa5xNi-Qnwx3c1LDtdqmq4u-_NE4uoKnOwip5zMnG_Al_vyLQ/exec",
+        "tls": "",
+        "proxy": "",
+        "authType": "",
+        "x": 630,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4e3f9249.45f86c",
+        "type": "http request",
+        "z": "2abbf4e2.73ffcc",
+        "name": "Terminar Log Ambiente",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": false,
+        "url": "https://script.google.com/macros/s/AKfycbzDveflH24vgylaVOIUW9K4j6hHx4UnfJbTdqUffgYOxP-OCLRVepScqk8hStCSHhBWdQ/exec",
+        "tls": "",
+        "proxy": "",
+        "authType": "",
+        "x": 610,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "978e6d7a.8d4c9",
+        "type": "debug",
+        "z": "2abbf4e2.73ffcc",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 370,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "76dcfe10.09502",
+        "type": "switch",
+        "z": "2abbf4e2.73ffcc",
+        "name": "deshidratadorEncendido",
+        "property": "payload.dehRunning",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 310,
+        "y": 120,
+        "wires": [
+            [
+                "8d66fa3d.8b0758",
+                "46e69d1a.14e5e4"
+            ]
+        ]
+    }
+]
